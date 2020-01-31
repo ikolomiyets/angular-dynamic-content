@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-dynamic-loading-poc": {
+    "angular-dynamic-loading": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-dynamic-loading-poc",
+            "outputPath": "dist/angular-dynamic-loading",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,9 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -63,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-dynamic-loading-poc:build"
+            "browserTarget": "angular-dynamic-loading:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-dynamic-loading-poc:build:production"
+              "browserTarget": "angular-dynamic-loading:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-dynamic-loading-poc:build"
+            "browserTarget": "angular-dynamic-loading:build"
           }
         },
         "test": {
@@ -91,7 +95,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           }
         },
         "lint": {
@@ -111,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-dynamic-loading-poc:serve"
+            "devServerTarget": "angular-dynamic-loading:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-dynamic-loading-poc:serve:production"
+              "devServerTarget": "angular-dynamic-loading:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-dynamic-loading-poc"
+  "defaultProject": "angular-dynamic-loading"
 }
